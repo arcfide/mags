@@ -1,0 +1,54 @@
+Primitive Sandbox (Complete)
+
+	Description
+		Implement basic sandbox without I/O sandboxing. Deal
+		with timeouts and illegal procedures. Allow for the
+		translation of illegal forms to legal forms automatically.
+
+I/O Sandboxing (In Progress)
+
+	Description
+		Add I/O to sandboxing so that the file system is in a
+		safe state at all times. Make sure that you can prevent
+		overusing space, and so forth.
+
+Testing Framework (Complete)
+
+	Description
+		Examine and implement a suitable testing framework
+		abstraction, possibly using an existing system.
+
+Random Testing Idioms (Complete)
+
+	Description
+		Develop idioms and procedures for dealing with random
+		testing of procedures.
+
+Pretty Test Runners (In Progress)
+
+	Description
+		Implement test runners for doing pretty printing of test results
+		in a form that can be dealt with on the Web and other
+		formats. 
+
+
+Vincent Submission System (Incomplete)
+
+	Description
+                Implement a basic submission system in a
+		convenient way that is efficient and reliable.
+
+
+Vincent Filtering (Incomplete)
+
+	Description
+		Implement filters to permit autograding to be
+		enabled automatically. Make sure to support public and
+		private filters as well as determining when a filter
+		failure or bad result should stop the continuation of
+		the submission or not.
+
+Testing (In Progress)
+
+	Description
+		Handles final Beta testing and product deployment.

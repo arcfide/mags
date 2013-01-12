@@ -24,3 +24,4 @@ clean:
 	rm -rf *.toc
 	rm -rf *.scn
 	rm -rf *.idx
+
