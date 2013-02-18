@@ -1,5 +1,8 @@
 (library (mags testing-harness)
   (export
+    mags-solution-file mags-submission-file
+    current-sandbox
+    initialize-test-suite
     test-begin test-group
     test-end test-assert test-eqv test-eq test-equal
     test-approximate test-assert test-error test-apply test-with-runner
@@ -21,5 +24,21 @@
       (unless (string? x)
         (error 'mags-submission-file "needs a pathname" x))
       x)))
-  
+
+(define current-sandbox
+  (make-parameter
+    (lambda (x)
+      (unless (environment? x)
+        (error 'current-sandbox "environment required" x))
+      x)))
+
+(define-syntax initialize-test-suite
+  (syntax-rules ()
+    [(_ sandbox proc ...)
+     (begin
+       (test-runner-current (test-runner-simple))
+       (current-sandbox (copy-environment (environment 'sandbox) #t))
+       (load (mags-submission-file) (lambda (x) (eval x (current-sandbox))))
+       (define proc (eval 'proc (current-sandbox))) ...)]))
+
 )

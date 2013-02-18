@@ -9,7 +9,7 @@
         "scheme-grader : test-suite solution submission"))
     (let-values ([(suite sol sub) (apply values args)])
       (let ([suite-env (make-suite-environment sol sub)])
-        (load suite suite-env))))
+        (load suite (lambda (x) (eval x suite-env))))))
 
   (define (make-suite-environment solution submission)
     (let ([env (copy-environment
