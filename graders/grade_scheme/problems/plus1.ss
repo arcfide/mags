@@ -1,8 +1,4 @@
-(define-sandbox (a2 sandbox)
-  (export-all)
-  (import (chezscheme)))
-
-(define-from-submission plus1)
+(initialize-test-suite (chezscheme) plus1)
 
 (test-group "plus1"
   (test-equal 2 (plus1 1))
