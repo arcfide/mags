@@ -1,0 +1,1 @@
+(define plus1 (lambda (x) (+ x 1)))
