@@ -8,6 +8,18 @@
     test-runner-group-path test-group-with-cleanup)
   (import (chezscheme) (srfi-64))
 
+(define mags-solution-file
+  (make-parameter ""
+    (lambda (x)
+      (unless (string? x)
+        (error 'mags-solution-file "needs a pathname" x))
+      x)))
 
+(define mags-submission-file
+  (make-parameter ""
+    (lambda (x)
+      (unless (string? x)
+        (error 'mags-submission-file "needs a pathname" x))
+      x)))
   
 )
