@@ -2,29 +2,25 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.2.2
--- Dumped by pg_dump version 9.2.2
--- Started on 2013-01-14 17:19:10 EST
+-- Started on 2013-02-18 18:59:04 EST
 
 SET statement_timeout = 0;
 SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
+SET standard_conforming_strings = off;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
-
-SET statement_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SET check_function_bodies = false;
-SET client_min_messages = warning;
+SET escape_string_warning = off;
 
 SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
 
 SET default_with_oids = false;
 
 --
--- TOC entry 168 (class 1259 OID 16397)
--- Name: assignments; Type: TABLE; Schema: public; Owner: -
+-- TOC entry 140 (class 1259 OID 16653)
+-- Dependencies: 3
+-- Name: assignments; Type: TABLE; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 CREATE TABLE assignments (
@@ -32,20 +28,26 @@ CREATE TABLE assignments (
 );
 
 
+ALTER TABLE public.assignments OWNER TO arcfide;
+
 --
--- TOC entry 169 (class 1259 OID 16403)
--- Name: belongsto; Type: TABLE; Schema: public; Owner: -
+-- TOC entry 141 (class 1259 OID 16659)
+-- Dependencies: 3
+-- Name: belongsto; Type: TABLE; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 CREATE TABLE belongsto (
     assignment text NOT NULL,
-    "group" text NOT NULL
+    group_name text NOT NULL
 );
 
 
+ALTER TABLE public.belongsto OWNER TO arcfide;
+
 --
--- TOC entry 170 (class 1259 OID 16409)
--- Name: categories; Type: TABLE; Schema: public; Owner: -
+-- TOC entry 142 (class 1259 OID 16665)
+-- Dependencies: 3
+-- Name: categories; Type: TABLE; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 CREATE TABLE categories (
@@ -53,9 +55,12 @@ CREATE TABLE categories (
 );
 
 
+ALTER TABLE public.categories OWNER TO arcfide;
+
 --
--- TOC entry 171 (class 1259 OID 16415)
--- Name: collaborated; Type: TABLE; Schema: public; Owner: -
+-- TOC entry 143 (class 1259 OID 16671)
+-- Dependencies: 3
+-- Name: collaborated; Type: TABLE; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 CREATE TABLE collaborated (
@@ -66,9 +71,12 @@ CREATE TABLE collaborated (
 );
 
 
+ALTER TABLE public.collaborated OWNER TO arcfide;
+
 --
--- TOC entry 172 (class 1259 OID 16421)
--- Name: comments; Type: TABLE; Schema: public; Owner: -
+-- TOC entry 144 (class 1259 OID 16677)
+-- Dependencies: 3
+-- Name: comments; Type: TABLE; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 CREATE TABLE comments (
@@ -76,9 +84,12 @@ CREATE TABLE comments (
 );
 
 
+ALTER TABLE public.comments OWNER TO arcfide;
+
 --
--- TOC entry 173 (class 1259 OID 16427)
--- Name: commentson; Type: TABLE; Schema: public; Owner: -
+-- TOC entry 145 (class 1259 OID 16683)
+-- Dependencies: 3
+-- Name: commentson; Type: TABLE; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 CREATE TABLE commentson (
@@ -92,9 +103,12 @@ CREATE TABLE commentson (
 );
 
 
+ALTER TABLE public.commentson OWNER TO arcfide;
+
 --
--- TOC entry 174 (class 1259 OID 16433)
--- Name: contains; Type: TABLE; Schema: public; Owner: -
+-- TOC entry 146 (class 1259 OID 16689)
+-- Dependencies: 3
+-- Name: contains; Type: TABLE; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 CREATE TABLE contains (
@@ -104,9 +118,12 @@ CREATE TABLE contains (
 );
 
 
+ALTER TABLE public.contains OWNER TO arcfide;
+
 --
--- TOC entry 175 (class 1259 OID 16439)
--- Name: deadlines; Type: TABLE; Schema: public; Owner: -
+-- TOC entry 147 (class 1259 OID 16695)
+-- Dependencies: 3
+-- Name: deadlines; Type: TABLE; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 CREATE TABLE deadlines (
@@ -115,9 +132,12 @@ CREATE TABLE deadlines (
 );
 
 
+ALTER TABLE public.deadlines OWNER TO arcfide;
+
 --
--- TOC entry 176 (class 1259 OID 16445)
--- Name: groups; Type: TABLE; Schema: public; Owner: -
+-- TOC entry 148 (class 1259 OID 16701)
+-- Dependencies: 3
+-- Name: groups; Type: TABLE; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 CREATE TABLE groups (
@@ -125,9 +145,12 @@ CREATE TABLE groups (
 );
 
 
+ALTER TABLE public.groups OWNER TO arcfide;
+
 --
--- TOC entry 177 (class 1259 OID 16451)
--- Name: hasdeadline; Type: TABLE; Schema: public; Owner: -
+-- TOC entry 149 (class 1259 OID 16707)
+-- Dependencies: 3
+-- Name: hasdeadline; Type: TABLE; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 CREATE TABLE hasdeadline (
@@ -137,9 +160,12 @@ CREATE TABLE hasdeadline (
 );
 
 
+ALTER TABLE public.hasdeadline OWNER TO arcfide;
+
 --
--- TOC entry 178 (class 1259 OID 16457)
--- Name: hastype; Type: TABLE; Schema: public; Owner: -
+-- TOC entry 150 (class 1259 OID 16713)
+-- Dependencies: 3
+-- Name: hastype; Type: TABLE; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 CREATE TABLE hastype (
@@ -148,9 +174,12 @@ CREATE TABLE hastype (
 );
 
 
+ALTER TABLE public.hastype OWNER TO arcfide;
+
 --
--- TOC entry 179 (class 1259 OID 16463)
--- Name: instructors; Type: TABLE; Schema: public; Owner: -
+-- TOC entry 151 (class 1259 OID 16719)
+-- Dependencies: 3
+-- Name: instructors; Type: TABLE; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 CREATE TABLE instructors (
@@ -160,20 +189,26 @@ CREATE TABLE instructors (
 );
 
 
+ALTER TABLE public.instructors OWNER TO arcfide;
+
 --
--- TOC entry 186 (class 1259 OID 16650)
--- Name: memberof; Type: TABLE; Schema: public; Owner: -
+-- TOC entry 152 (class 1259 OID 16725)
+-- Dependencies: 3
+-- Name: memberof; Type: TABLE; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 CREATE TABLE memberof (
-    "group" text NOT NULL,
+    group_name text NOT NULL,
     student text NOT NULL
 );
 
 
+ALTER TABLE public.memberof OWNER TO arcfide;
+
 --
--- TOC entry 180 (class 1259 OID 16469)
--- Name: problems; Type: TABLE; Schema: public; Owner: -
+-- TOC entry 153 (class 1259 OID 16731)
+-- Dependencies: 1860 3
+-- Name: problems; Type: TABLE; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 CREATE TABLE problems (
@@ -186,9 +221,12 @@ CREATE TABLE problems (
 );
 
 
+ALTER TABLE public.problems OWNER TO arcfide;
+
 --
--- TOC entry 181 (class 1259 OID 16476)
--- Name: submissions; Type: TABLE; Schema: public; Owner: -
+-- TOC entry 154 (class 1259 OID 16738)
+-- Dependencies: 1861 3
+-- Name: submissions; Type: TABLE; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 CREATE TABLE submissions (
@@ -201,9 +239,12 @@ CREATE TABLE submissions (
 );
 
 
+ALTER TABLE public.submissions OWNER TO arcfide;
+
 --
--- TOC entry 182 (class 1259 OID 16483)
--- Name: submitters; Type: TABLE; Schema: public; Owner: -
+-- TOC entry 155 (class 1259 OID 16745)
+-- Dependencies: 3
+-- Name: submitters; Type: TABLE; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 CREATE TABLE submitters (
@@ -213,20 +254,26 @@ CREATE TABLE submitters (
 );
 
 
+ALTER TABLE public.submitters OWNER TO arcfide;
+
 --
--- TOC entry 183 (class 1259 OID 16489)
--- Name: teaches; Type: TABLE; Schema: public; Owner: -
+-- TOC entry 156 (class 1259 OID 16751)
+-- Dependencies: 3
+-- Name: teaches; Type: TABLE; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 CREATE TABLE teaches (
     teacher text NOT NULL,
-    "group" text NOT NULL
+    group_name text NOT NULL
 );
 
 
+ALTER TABLE public.teaches OWNER TO arcfide;
+
 --
--- TOC entry 184 (class 1259 OID 16495)
--- Name: validates; Type: TABLE; Schema: public; Owner: -
+-- TOC entry 157 (class 1259 OID 16757)
+-- Dependencies: 3
+-- Name: validates; Type: TABLE; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 CREATE TABLE validates (
@@ -236,9 +283,12 @@ CREATE TABLE validates (
 );
 
 
+ALTER TABLE public.validates OWNER TO arcfide;
+
 --
--- TOC entry 185 (class 1259 OID 16501)
--- Name: validators; Type: TABLE; Schema: public; Owner: -
+-- TOC entry 158 (class 1259 OID 16763)
+-- Dependencies: 3
+-- Name: validators; Type: TABLE; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 CREATE TABLE validators (
@@ -247,9 +297,12 @@ CREATE TABLE validators (
 );
 
 
+ALTER TABLE public.validators OWNER TO arcfide;
+
 --
--- TOC entry 2585 (class 2606 OID 16508)
--- Name: assignments_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1863 (class 2606 OID 16770)
+-- Dependencies: 140 140
+-- Name: assignments_key; Type: CONSTRAINT; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 ALTER TABLE ONLY assignments
@@ -257,17 +310,19 @@ ALTER TABLE ONLY assignments
 
 
 --
--- TOC entry 2587 (class 2606 OID 16510)
--- Name: belongsto_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1865 (class 2606 OID 16772)
+-- Dependencies: 141 141 141
+-- Name: belongsto_key; Type: CONSTRAINT; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 ALTER TABLE ONLY belongsto
-    ADD CONSTRAINT belongsto_key PRIMARY KEY (assignment, "group");
+    ADD CONSTRAINT belongsto_key PRIMARY KEY (assignment, group_name);
 
 
 --
--- TOC entry 2589 (class 2606 OID 16512)
--- Name: categories_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1867 (class 2606 OID 16774)
+-- Dependencies: 142 142
+-- Name: categories_key; Type: CONSTRAINT; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 ALTER TABLE ONLY categories
@@ -275,8 +330,9 @@ ALTER TABLE ONLY categories
 
 
 --
--- TOC entry 2591 (class 2606 OID 16514)
--- Name: collaborated_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1869 (class 2606 OID 16776)
+-- Dependencies: 143 143 143 143 143
+-- Name: collaborated_key; Type: CONSTRAINT; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 ALTER TABLE ONLY collaborated
@@ -284,8 +340,9 @@ ALTER TABLE ONLY collaborated
 
 
 --
--- TOC entry 2593 (class 2606 OID 16516)
--- Name: comments_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1871 (class 2606 OID 16778)
+-- Dependencies: 144 144
+-- Name: comments_key; Type: CONSTRAINT; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 ALTER TABLE ONLY comments
@@ -293,8 +350,9 @@ ALTER TABLE ONLY comments
 
 
 --
--- TOC entry 2595 (class 2606 OID 16518)
--- Name: commentson_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1873 (class 2606 OID 16780)
+-- Dependencies: 145 145 145 145 145 145 145 145
+-- Name: commentson_key; Type: CONSTRAINT; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 ALTER TABLE ONLY commentson
@@ -302,8 +360,9 @@ ALTER TABLE ONLY commentson
 
 
 --
--- TOC entry 2598 (class 2606 OID 16520)
--- Name: contains_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1876 (class 2606 OID 16782)
+-- Dependencies: 146 146 146
+-- Name: contains_key; Type: CONSTRAINT; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 ALTER TABLE ONLY contains
@@ -311,8 +370,9 @@ ALTER TABLE ONLY contains
 
 
 --
--- TOC entry 2600 (class 2606 OID 16522)
--- Name: deadlines_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1878 (class 2606 OID 16784)
+-- Dependencies: 147 147 147
+-- Name: deadlines_key; Type: CONSTRAINT; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 ALTER TABLE ONLY deadlines
@@ -320,8 +380,9 @@ ALTER TABLE ONLY deadlines
 
 
 --
--- TOC entry 2602 (class 2606 OID 16524)
--- Name: groups_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1880 (class 2606 OID 16786)
+-- Dependencies: 148 148
+-- Name: groups_key; Type: CONSTRAINT; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 ALTER TABLE ONLY groups
@@ -329,8 +390,9 @@ ALTER TABLE ONLY groups
 
 
 --
--- TOC entry 2604 (class 2606 OID 16526)
--- Name: hasdeadline_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1882 (class 2606 OID 16788)
+-- Dependencies: 149 149 149 149
+-- Name: hasdeadline_key; Type: CONSTRAINT; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 ALTER TABLE ONLY hasdeadline
@@ -338,8 +400,9 @@ ALTER TABLE ONLY hasdeadline
 
 
 --
--- TOC entry 2606 (class 2606 OID 16528)
--- Name: hastype_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1884 (class 2606 OID 16790)
+-- Dependencies: 150 150 150
+-- Name: hastype_key; Type: CONSTRAINT; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 ALTER TABLE ONLY hastype
@@ -347,8 +410,9 @@ ALTER TABLE ONLY hastype
 
 
 --
--- TOC entry 2608 (class 2606 OID 16530)
--- Name: instructors_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1886 (class 2606 OID 16792)
+-- Dependencies: 151 151
+-- Name: instructors_key; Type: CONSTRAINT; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 ALTER TABLE ONLY instructors
@@ -356,17 +420,19 @@ ALTER TABLE ONLY instructors
 
 
 --
--- TOC entry 2622 (class 2606 OID 16657)
--- Name: memberof_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1888 (class 2606 OID 16794)
+-- Dependencies: 152 152 152
+-- Name: memberof_key; Type: CONSTRAINT; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 ALTER TABLE ONLY memberof
-    ADD CONSTRAINT memberof_key PRIMARY KEY ("group", student);
+    ADD CONSTRAINT memberof_key PRIMARY KEY (group_name, student);
 
 
 --
--- TOC entry 2610 (class 2606 OID 16532)
--- Name: problems_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1890 (class 2606 OID 16796)
+-- Dependencies: 153 153
+-- Name: problems_key; Type: CONSTRAINT; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 ALTER TABLE ONLY problems
@@ -374,8 +440,9 @@ ALTER TABLE ONLY problems
 
 
 --
--- TOC entry 2612 (class 2606 OID 16534)
--- Name: submissions_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1892 (class 2606 OID 16798)
+-- Dependencies: 154 154 154 154
+-- Name: submissions_key; Type: CONSTRAINT; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 ALTER TABLE ONLY submissions
@@ -383,8 +450,9 @@ ALTER TABLE ONLY submissions
 
 
 --
--- TOC entry 2614 (class 2606 OID 16536)
--- Name: submitters_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1894 (class 2606 OID 16800)
+-- Dependencies: 155 155
+-- Name: submitters_key; Type: CONSTRAINT; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 ALTER TABLE ONLY submitters
@@ -392,17 +460,19 @@ ALTER TABLE ONLY submitters
 
 
 --
--- TOC entry 2616 (class 2606 OID 16538)
--- Name: teaches_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1896 (class 2606 OID 16802)
+-- Dependencies: 156 156 156
+-- Name: teaches_key; Type: CONSTRAINT; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 ALTER TABLE ONLY teaches
-    ADD CONSTRAINT teaches_key PRIMARY KEY (teacher, "group");
+    ADD CONSTRAINT teaches_key PRIMARY KEY (teacher, group_name);
 
 
 --
--- TOC entry 2618 (class 2606 OID 16540)
--- Name: validates_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1898 (class 2606 OID 16804)
+-- Dependencies: 157 157 157 157
+-- Name: validates_key; Type: CONSTRAINT; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 ALTER TABLE ONLY validates
@@ -410,8 +480,9 @@ ALTER TABLE ONLY validates
 
 
 --
--- TOC entry 2620 (class 2606 OID 16542)
--- Name: validators_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1900 (class 2606 OID 16806)
+-- Dependencies: 158 158
+-- Name: validators_key; Type: CONSTRAINT; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 ALTER TABLE ONLY validators
@@ -419,16 +490,18 @@ ALTER TABLE ONLY validators
 
 
 --
--- TOC entry 2596 (class 1259 OID 16543)
--- Name: fki_commentson_contains_forkey; Type: INDEX; Schema: public; Owner: -
+-- TOC entry 1874 (class 1259 OID 16807)
+-- Dependencies: 145 145
+-- Name: fki_commentson_contains_forkey; Type: INDEX; Schema: public; Owner: arcfide; Tablespace: 
 --
 
 CREATE INDEX fki_commentson_contains_forkey ON commentson USING btree (assignment, problem);
 
 
 --
--- TOC entry 2623 (class 2606 OID 16544)
--- Name: belongsto_assignments_forkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1901 (class 2606 OID 16808)
+-- Dependencies: 1862 140 141
+-- Name: belongsto_assignments_forkey; Type: FK CONSTRAINT; Schema: public; Owner: arcfide
 --
 
 ALTER TABLE ONLY belongsto
@@ -436,17 +509,19 @@ ALTER TABLE ONLY belongsto
 
 
 --
--- TOC entry 2624 (class 2606 OID 16549)
--- Name: belongsto_groups_forkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1902 (class 2606 OID 16813)
+-- Dependencies: 148 141 1879
+-- Name: belongsto_groups_forkey; Type: FK CONSTRAINT; Schema: public; Owner: arcfide
 --
 
 ALTER TABLE ONLY belongsto
-    ADD CONSTRAINT belongsto_groups_forkey FOREIGN KEY ("group") REFERENCES groups(name);
+    ADD CONSTRAINT belongsto_groups_forkey FOREIGN KEY (group_name) REFERENCES groups(name);
 
 
 --
--- TOC entry 2625 (class 2606 OID 16554)
--- Name: collaborated_submissions_forkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1903 (class 2606 OID 16818)
+-- Dependencies: 154 143 143 143 154 154 1891
+-- Name: collaborated_submissions_forkey; Type: FK CONSTRAINT; Schema: public; Owner: arcfide
 --
 
 ALTER TABLE ONLY collaborated
@@ -454,8 +529,9 @@ ALTER TABLE ONLY collaborated
 
 
 --
--- TOC entry 2626 (class 2606 OID 16559)
--- Name: collaborated_submitters_forkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1904 (class 2606 OID 16823)
+-- Dependencies: 1893 155 143
+-- Name: collaborated_submitters_forkey; Type: FK CONSTRAINT; Schema: public; Owner: arcfide
 --
 
 ALTER TABLE ONLY collaborated
@@ -463,8 +539,9 @@ ALTER TABLE ONLY collaborated
 
 
 --
--- TOC entry 2627 (class 2606 OID 16564)
--- Name: commentson_comments_forkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1905 (class 2606 OID 16828)
+-- Dependencies: 144 145 1870
+-- Name: commentson_comments_forkey; Type: FK CONSTRAINT; Schema: public; Owner: arcfide
 --
 
 ALTER TABLE ONLY commentson
@@ -472,8 +549,9 @@ ALTER TABLE ONLY commentson
 
 
 --
--- TOC entry 2628 (class 2606 OID 16569)
--- Name: commentson_contains_forkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1906 (class 2606 OID 16833)
+-- Dependencies: 146 145 145 146 1875
+-- Name: commentson_contains_forkey; Type: FK CONSTRAINT; Schema: public; Owner: arcfide
 --
 
 ALTER TABLE ONLY commentson
@@ -481,8 +559,9 @@ ALTER TABLE ONLY commentson
 
 
 --
--- TOC entry 2629 (class 2606 OID 16574)
--- Name: commentson_problems_forkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1907 (class 2606 OID 16838)
+-- Dependencies: 145 1889 153
+-- Name: commentson_problems_forkey; Type: FK CONSTRAINT; Schema: public; Owner: arcfide
 --
 
 ALTER TABLE ONLY commentson
@@ -490,8 +569,9 @@ ALTER TABLE ONLY commentson
 
 
 --
--- TOC entry 2630 (class 2606 OID 16579)
--- Name: commentson_submissions_forkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1908 (class 2606 OID 16843)
+-- Dependencies: 145 145 145 154 154 154 1891
+-- Name: commentson_submissions_forkey; Type: FK CONSTRAINT; Schema: public; Owner: arcfide
 --
 
 ALTER TABLE ONLY commentson
@@ -499,8 +579,9 @@ ALTER TABLE ONLY commentson
 
 
 --
--- TOC entry 2631 (class 2606 OID 16584)
--- Name: contains_assignments_forkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1909 (class 2606 OID 16848)
+-- Dependencies: 140 146 1862
+-- Name: contains_assignments_forkey; Type: FK CONSTRAINT; Schema: public; Owner: arcfide
 --
 
 ALTER TABLE ONLY contains
@@ -508,8 +589,9 @@ ALTER TABLE ONLY contains
 
 
 --
--- TOC entry 2632 (class 2606 OID 16589)
--- Name: contains_problems_forkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1910 (class 2606 OID 16853)
+-- Dependencies: 146 153 1889
+-- Name: contains_problems_forkey; Type: FK CONSTRAINT; Schema: public; Owner: arcfide
 --
 
 ALTER TABLE ONLY contains
@@ -517,8 +599,9 @@ ALTER TABLE ONLY contains
 
 
 --
--- TOC entry 2633 (class 2606 OID 16594)
--- Name: hasdeadline_assignments_forkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1911 (class 2606 OID 16858)
+-- Dependencies: 1862 149 140
+-- Name: hasdeadline_assignments_forkey; Type: FK CONSTRAINT; Schema: public; Owner: arcfide
 --
 
 ALTER TABLE ONLY hasdeadline
@@ -526,8 +609,9 @@ ALTER TABLE ONLY hasdeadline
 
 
 --
--- TOC entry 2634 (class 2606 OID 16599)
--- Name: hasdeadline_deadlines_forkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1912 (class 2606 OID 16863)
+-- Dependencies: 149 149 147 1877 147
+-- Name: hasdeadline_deadlines_forkey; Type: FK CONSTRAINT; Schema: public; Owner: arcfide
 --
 
 ALTER TABLE ONLY hasdeadline
@@ -535,8 +619,9 @@ ALTER TABLE ONLY hasdeadline
 
 
 --
--- TOC entry 2635 (class 2606 OID 16604)
--- Name: hastype_assignments_forkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1913 (class 2606 OID 16868)
+-- Dependencies: 140 150 1862
+-- Name: hastype_assignments_forkey; Type: FK CONSTRAINT; Schema: public; Owner: arcfide
 --
 
 ALTER TABLE ONLY hastype
@@ -544,8 +629,9 @@ ALTER TABLE ONLY hastype
 
 
 --
--- TOC entry 2636 (class 2606 OID 16609)
--- Name: hastype_categories_forkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1914 (class 2606 OID 16873)
+-- Dependencies: 150 1866 142
+-- Name: hastype_categories_forkey; Type: FK CONSTRAINT; Schema: public; Owner: arcfide
 --
 
 ALTER TABLE ONLY hastype
@@ -553,17 +639,19 @@ ALTER TABLE ONLY hastype
 
 
 --
--- TOC entry 2643 (class 2606 OID 16658)
--- Name: memberof_groups_forkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1915 (class 2606 OID 16878)
+-- Dependencies: 148 1879 152
+-- Name: memberof_groups_forkey; Type: FK CONSTRAINT; Schema: public; Owner: arcfide
 --
 
 ALTER TABLE ONLY memberof
-    ADD CONSTRAINT memberof_groups_forkey FOREIGN KEY ("group") REFERENCES groups(name);
+    ADD CONSTRAINT memberof_groups_forkey FOREIGN KEY (group_name) REFERENCES groups(name);
 
 
 --
--- TOC entry 2644 (class 2606 OID 16663)
--- Name: memberof_submitters_forkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1916 (class 2606 OID 16883)
+-- Dependencies: 152 155 1893
+-- Name: memberof_submitters_forkey; Type: FK CONSTRAINT; Schema: public; Owner: arcfide
 --
 
 ALTER TABLE ONLY memberof
@@ -571,8 +659,9 @@ ALTER TABLE ONLY memberof
 
 
 --
--- TOC entry 2637 (class 2606 OID 16614)
--- Name: submissions_assignments_forkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1917 (class 2606 OID 16888)
+-- Dependencies: 154 1862 140
+-- Name: submissions_assignments_forkey; Type: FK CONSTRAINT; Schema: public; Owner: arcfide
 --
 
 ALTER TABLE ONLY submissions
@@ -580,8 +669,9 @@ ALTER TABLE ONLY submissions
 
 
 --
--- TOC entry 2638 (class 2606 OID 16619)
--- Name: submissions_submitters_forkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1918 (class 2606 OID 16893)
+-- Dependencies: 154 1893 155
+-- Name: submissions_submitters_forkey; Type: FK CONSTRAINT; Schema: public; Owner: arcfide
 --
 
 ALTER TABLE ONLY submissions
@@ -589,17 +679,19 @@ ALTER TABLE ONLY submissions
 
 
 --
--- TOC entry 2639 (class 2606 OID 16629)
--- Name: teaches_groups_forkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1919 (class 2606 OID 16898)
+-- Dependencies: 1879 156 148
+-- Name: teaches_groups_forkey; Type: FK CONSTRAINT; Schema: public; Owner: arcfide
 --
 
 ALTER TABLE ONLY teaches
-    ADD CONSTRAINT teaches_groups_forkey FOREIGN KEY ("group") REFERENCES groups(name);
+    ADD CONSTRAINT teaches_groups_forkey FOREIGN KEY (group_name) REFERENCES groups(name);
 
 
 --
--- TOC entry 2640 (class 2606 OID 16634)
--- Name: teaches_instructors_forkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1920 (class 2606 OID 16903)
+-- Dependencies: 151 156 1885
+-- Name: teaches_instructors_forkey; Type: FK CONSTRAINT; Schema: public; Owner: arcfide
 --
 
 ALTER TABLE ONLY teaches
@@ -607,8 +699,9 @@ ALTER TABLE ONLY teaches
 
 
 --
--- TOC entry 2641 (class 2606 OID 16639)
--- Name: validates_assignment_forkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1921 (class 2606 OID 16908)
+-- Dependencies: 140 1862 157
+-- Name: validates_assignment_forkey; Type: FK CONSTRAINT; Schema: public; Owner: arcfide
 --
 
 ALTER TABLE ONLY validates
@@ -616,15 +709,28 @@ ALTER TABLE ONLY validates
 
 
 --
--- TOC entry 2642 (class 2606 OID 16644)
--- Name: validates_validator_forkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- TOC entry 1922 (class 2606 OID 16913)
+-- Dependencies: 1899 158 157
+-- Name: validates_validator_forkey; Type: FK CONSTRAINT; Schema: public; Owner: arcfide
 --
 
 ALTER TABLE ONLY validates
     ADD CONSTRAINT validates_validator_forkey FOREIGN KEY (validator) REFERENCES validators(name);
 
 
--- Completed on 2013-01-14 17:19:10 EST
+--
+-- TOC entry 1927 (class 0 OID 0)
+-- Dependencies: 3
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2013-02-18 18:59:05 EST
 
 --
 -- PostgreSQL database dump complete
