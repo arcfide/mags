@@ -1,4 +1,7 @@
-(initialize-test-suite (chezscheme) plus1)
+(define-sandbox
+  (import (except (chezscheme) +)))
+
+(initialize-test-suite plus1)
 
 (test-group "plus1"
   (test-equal 2 (plus1 1))
