@@ -10,10 +10,11 @@
     test-skip test-expect-fail test-read-eval-string
     test-runner-group-path test-group-with-cleanup)
   (import (chezscheme)
-          (except (srfi-64)
+          (srfi-64)
+          #;(except (srfi-64)
                   test-equal
                   test-eq
-                  test-eqv)
+                  test-eqv))
 
  
 (define mags-solution-file
@@ -43,8 +44,13 @@
      (current-sandbox
       (copy-environment
        (environment 'lib ...)
-       #t))]))
-
+       #t))]
+    [(_ (export name ...) (import lib ...) fn ...)
+     (begin
+       (current-sandbox (copy-environment
+                         (environment 'lib ...)
+                         #t))
+       (define name (eval 'fn (current-sandbox))) ...)]))
 
 (define-syntax initialize-test-suite
   (syntax-rules ()
@@ -60,9 +66,32 @@
        (load (mags-submission-file) (lambda (x) (eval x (current-sandbox))))
        (define proc (eval 'proc (current-sandbox))) ...)]))
 
+
+;;Let's start doing some infinite looping stuff!
+#|
+(define time-limit
+  (make-parameter 30
+    (lambda (x)
+      (unless (integer? x)
+        (error 'time-limit "needs a number" x))
+      x))) 
+(load-shared-object "libc.so.6")
+(define signal/alarm 14) ;magic constant 14 from signal.h
+(define $alarm (foreign-procedure "alarm" (unsigned-int) unsigned-int))
+(define (with-time-limit seconds handler-thunk proc-thunk)
+  (call-with-current-continuation
+   (lambda (return)
+     (register-signal-handler
+      signal/alarm
+      (lambda (x) (return (handler-thunk))))
+     ($alarm seconds)
+     (proc-thunk))))
+
+
+
 ;;Let's redefine test-equal with our time limit
 (define-syntax test-equal
-  (syntax-rules
+  (syntax-rules ()
       [(_ expected test-expr)
        (with-time-limit
         (time-limit)
@@ -74,25 +103,6 @@
         (lambda () (register-signal-handler $alarm (lambda (x) x)))
         (lambda () (test-assert name (equal? expected test-expr))))]))
 
-;;Let's start doing some infinite looping stuff!
-
-(define time-limit
-  (make-parameter 30
-    (lambda (x)
-      (unless (integer? x)
-        (error 'time-limit "needs a number" x))
-      x)))
-
-(define signal/alarm 14) ;magic constant 14 from signal.h
-(define $alarm (foreign-procedure "alarm" (unsigned-int) unsigned-int))
-(define (with-time-limit seconds handler-thunk proc-thunk)
-  (call-with-current-continuation
-   (lambda (return)
-     (register-signal-handler
-      signal/alarm
-      (lambda (x) (return (handler-thunk))))
-     ($alarm seconds)
-     (proc-thunk))))
-(load-shared-object "libc.so.6")
-
+;;(define-syntax define-test
+|#
 )
