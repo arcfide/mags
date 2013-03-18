@@ -68,7 +68,7 @@
 
 
 ;;Let's start doing some infinite looping stuff!
-#|
+
 (define time-limit
   (make-parameter 30
     (lambda (x)
@@ -90,17 +90,20 @@
 
 
 ;;Let's redefine test-equal with our time limit
+
+;;look at test-comp2 from srfi-64.sls
+;;test comp has to wrap around the with-time-limit
 (define-syntax test-equal
   (syntax-rules ()
       [(_ expected test-expr)
        (with-time-limit
         (time-limit)
-        (lambda () (register-signal-handler $alarm (lambda (x) x)))
+        (lambda () )
         (lambda () (test-assert (equal? expected test-expr))))]
       [(_ name expected test-expr)
        (with-time-limit
         (time-limit)
-        (lambda () (register-signal-handler $alarm (lambda (x) x)))
+	(lambda () .......)
         (lambda () (test-assert name (equal? expected test-expr))))]))
 
 ;;(define-syntax define-test
