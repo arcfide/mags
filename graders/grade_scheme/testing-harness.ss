@@ -83,32 +83,35 @@
 (define $alarm (foreign-procedure "alarm" (unsigned-int) unsigned-int))
 (define (with-time-limit seconds handler-thunk proc-thunk)
   (call-with-current-continuation
-   (lambda (return)
-     (register-signal-handler
-      signal/alarm
-      (lambda (x) (return (handler-thunk))))
-     ($alarm seconds)
-     (proc-thunk))))
+    (lambda (return)
+      (register-signal-handler
+        signal/alarm
+        (lambda (x) (return (handler-thunk))))
+      ($alarm seconds)
+      (proc-thunk))))
 
 
 
-;;Let's redefine test-equal with our time limit
-
-;;look at test-comp2 from srfi-64.sls
-;;test comp has to wrap around the with-time-limit
-(define-syntax test-equal
+;; define-equality-test implementation using with-time-limit to protect against 
+;; infinite loops in student code
+(define time-limit-handler
+  (lambda ()
+    (errorf 'time-limit-handler "possible infinite loop")))
+(define-syntax define-equality-test
   (syntax-rules ()
-      [(_ expected test-expr)
-       (with-time-limit
-        (time-limit)
-        (lambda () )
-        (lambda () (test-assert (equal? expected test-expr))))]
-      [(_ name expected test-expr)
-       (with-time-limit
-        (time-limit)
-	(lambda () .......)
-        (lambda () (test-assert name (equal? expected test-expr))))]))
-
-;;(define-syntax define-test
-|#
-)
+    [(_ test-name pred?)
+     (define-syntax test-name
+       (syntax-rules ()
+         [(_ name expected test-expr time)
+          (with-time-limit time time-limit-handler
+            (lambda ()
+              (%test-comp2 test-name pred? expected)))]
+         [(_ name expected test-expr)
+          (with-time-limit (time-limit) time-limit-handler
+            (lambda ()
+              (%test-comp2 test-name pred? expected)))]
+         [(_ expected test-expr)
+          (with-time-limit (time-limit) time-limit-handler
+            (lambda ()
+              (%test-comp2 pred? expected)))]
+         ))]))
