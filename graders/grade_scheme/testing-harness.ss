@@ -8,13 +8,16 @@
     test-approximate test-assert test-error test-apply test-with-runner
     test-match-nth test-match-all test-match-any test-match-name
     test-skip test-expect-fail test-read-eval-string
-    test-runner-group-path test-group-with-cleanup)
+    test-runner-group-path test-group-with-cleanup
+    test-runner-xml
+    )
   (import (chezscheme)
           (srfi-64)
+          (mags runners)
           #;(except (srfi-64)
-                  test-equal
-                  test-eq
-                  test-eqv))
+          test-equal
+          test-eq
+          test-eqv))
 
  
 (define mags-solution-file
