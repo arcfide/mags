@@ -75,7 +75,11 @@
 	  test-on-group-begin-simple test-on-group-end-simple
 	  test-on-bad-count-simple test-on-bad-end-name-simple
 	  test-on-final-simple test-on-test-end-simple
-	  test-on-final-simple)
+	  test-on-final-simple
+    ;; Bad, Bad, Bad; Jack's had a bad sort of day
+    ;; ... All work and no play makes Jack a dull boy;
+    ;; ... All work and no play makes Jack a dull boy...
+    %test-comp2)
   (import (chezscheme))
 
 (define-record-type (<test-runner> %test-runner-alloc test-runner?)

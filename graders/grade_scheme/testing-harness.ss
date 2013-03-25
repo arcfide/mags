@@ -78,7 +78,7 @@
       (unless (integer? x)
         (error 'time-limit "needs a number" x))
       x))) 
-(load-shared-object "libc.so.6")
+
 (define signal/alarm 14) ;magic constant 14 from signal.h
 (define $alarm (foreign-procedure "alarm" (unsigned-int) unsigned-int))
 (define (with-time-limit seconds handler-thunk proc-thunk)
@@ -94,24 +94,23 @@
 
 ;; define-equality-test implementation using with-time-limit to protect against 
 ;; infinite loops in student code
-(define time-limit-handler
-  (lambda ()
-    (errorf 'time-limit-handler "possible infinite loop")))
+(define (make-limit-handler exp)
+  (lambda () (raise (timeout exp))))
+
 (define-syntax define-equality-test
   (syntax-rules ()
     [(_ test-name pred?)
-     (define-syntax test-name
-       (syntax-rules ()
-         [(_ name expected test-expr time)
-          (with-time-limit time time-limit-handler
-            (lambda ()
-              (%test-comp2 test-name pred? expected)))]
-         [(_ name expected test-expr)
-          (with-time-limit (time-limit) time-limit-handler
-            (lambda ()
-              (%test-comp2 test-name pred? expected)))]
-         [(_ expected test-expr)
-          (with-time-limit (time-limit) time-limit-handler
-            (lambda ()
-              (%test-comp2 pred? expected)))]
-         ))]))
+     (define-syntax (test-name y) 
+       (syntax-case y ()
+         [(_ tname expected expr time)
+          (%test-comp2 #'pred? 
+            #'(test-name tname expected 
+              (with-time-limit time (make-limit-handler 'expr) (lambda () expr))))]
+         [(_ tname expected expr)
+          (%test-comp2 #'pred? 
+            #'(test-name tname expected 
+              (with-time-limit (time-limit) (make-limit-handler 'expr) (lambda () expr))))]
+         [(_ expected expr) 
+          (%test-comp2 #'pred? 
+            #'(test-name expected 
+              (with-time-limit (time-limit) (make-limit-handler 'expr) (lambda () expr))))]))]))
