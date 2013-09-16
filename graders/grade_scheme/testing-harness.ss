@@ -14,10 +14,11 @@
   (import (chezscheme)
           (srfi-64)
           (mags runners)
-          #;(except (srfi-64)
-          test-equal
-          test-eq
-          test-eqv))
+          ;(except (srfi-64)
+          ;  test-equal
+          ;  test-eq
+          ;  test-eqv)
+          )
 
  
 (define mags-solution-file
