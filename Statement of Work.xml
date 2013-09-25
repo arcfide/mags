@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<article xmlns="http://docbook.org/ns/docbook" version="5.0">
+  <info>
+    <author>Jianqing Guan and Aaron W. Hsu</author>
+    <date>Wednesday, September 25th, 2013</date>
+  </info>
+  <section>
+    <title>Statement of Work</title>
+    <para>
+     The goal of this project is to create a automatically grading system which enhances the current one for C211 to all courses in the university. 
+    </para>
+  </section>
+</article>
