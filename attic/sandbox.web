@@ -28,15 +28,15 @@ This library contains various procedures for
 constructing a sandbox environment. This sandbox is in essence a
 safe testing environment for which we can do multiple things:
 
-\unorderedlist
-\li Evaluate expressions in a safe environment.
-\li Identify a procedure that could use an expression that would
+\begingroup\leftskip=0.5in
+\item{1.} Evaluate expressions in a safe environment.
+\item{2.} Identify a procedure that could use an expression that would
 have have implications we want to avoid. We can |flag| these as
 expressions. You can see how this works in the section titled
 Creating Sandboxes. 
-\li Identify an infinite loop or
+\item{3.} Identify an infinite loop or
 inefficient procedure.
-\endunorderedlist
+\endgroup
 
 @(sandbox.sls@>=
 (library
@@ -77,12 +77,12 @@ These conditions are raised when certain problems arise in the
 evaluation of terms inside the sandbox environment. There are four
 conditions as follows:
 
-\unorderedlist
-\li |&sandbox| (the parent of all subsequent conditions)
-\li |&timeout|
-\li |&sandbox-i/o-error|
-\li |&illegal-term|
-\endunorderedlist
+\begingroup\leftskip=0.5in
+\item{1.} |&sandbox| (the parent of all subsequent conditions)
+\item{2.} |&timeout|
+\item{3.} |&sandbox-i/o-error|
+\item{4.} |&illegal-term|
+\endgroup
 
 \noindent
 Each has its
@@ -159,7 +159,7 @@ Predicate: |unbound-term?|, Constructor: |(unbound-term name)|.
   unbound-term?
   (name unbound-term-name))
 
-@* Creating sandboxes
+@* Creating sandboxes.
 Sandboxes are just libraries, but there are certain expectations
 about sandboxes that suggest another interface to create them.  For
 example, sandboxes generally do not define new bindings; instead, most

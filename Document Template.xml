@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<article xmlns="http://docbook.org/ns/docbook" version="5.0">
+  <info>
+    <author>XXX INSERT AUTHORSHIP HERE XXX</author>
+    <date>XXX INSERT DATE HERE XXX</date>
+  </info>
+  <section>
+    <title>XXX DOCUMENT TITLE XXX</title>
+    <para>
+      This is some sample content here. This is a paragraph that you should
+      replace with your own content. 
+    </para>
+  </section>
+</article>
