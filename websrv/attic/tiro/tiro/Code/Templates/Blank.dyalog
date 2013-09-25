@@ -1,3 +1,0 @@
-﻿:Class Blank : MildPage
-
-:EndClass
