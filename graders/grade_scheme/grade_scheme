@@ -1,0 +1,3 @@
+#!/usr/bin/env scheme-script
+(import (chezscheme))
+(load (format "~a/~a" (path-parent (car (command-line))) "grade_scheme.so"))
