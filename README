@@ -1,15 +1,6 @@
-README
-Please look at the github wiki on the developer setup. 
-https://github.com/krmckelv/mags/wiki/Developer-Setup
+# MAGS: McKelvey Autograding System
 
-Framework:
-grade.web: main grading framework
-sandbox.web: sandbox framework
-runners.web: srfi 64 test runners
-io.web: sandbox i/o framework (INCOMPLETE)
+This is the primary repository for the stable version of MAGS. The current
+version is under heavy development, so little is provided in this README.
 
-load.ss: loads and imports all autograder files
-test.ss: easy way to run tests
-
-
-
+For more information, contact <arcfide@sacrideo.us>
