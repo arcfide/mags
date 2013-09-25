@@ -10,5 +10,36 @@
     <para>
      The goal of this project is to create a automatically grading system which enhances the current one for C211 to all courses in the university. 
     </para>
+    <simpara>
+      The MAGS (McKelvey Autograding System) is the current system used by
+      the C211 Introduction to Computing course at Indiana University. This
+      first version used by the class works well, but has limitations and
+      bugs which have not been addressed or fixed during its lifetime.
+      A new version of MAGS which scales to multiple classrooms and courses,
+      as well as languages and systems should be developed. This project
+      will create this new version, enhancing the existing system to include
+      better student management, roster management, grade reporting, and
+      handling of multiple class sections. 
+    </simpara>
+    <simpara>
+      The application developed should be accessible through multiple
+      channels, be clearly and easily extensible without affecting the
+      overall stability of the system, and should be supportable by a single
+      developer or associate instructor for the entire school, without much
+      effort from the specific classes or courses being necessary.
+      Additionally, the application should be open-source and available
+      publically for use by other Universities. 
+    </simpara>
+    <simpara>
+      In addition to the above, this project will create a number of
+      documents with the express intent and purpose of ensuring the
+      maintainability and longevity of the project. This means that the
+      project should be able to continue even if there exists a long period
+      of inactivity or if there is a discontinuity of the development team
+      which might normally lead to a loss of expertise in the system. That
+      is, it should be possible for a new developer to enter the system and
+      learn how to use and work and develop the system without the
+      mentorship of an existing developer if at all possible. 
+    </simpara>
   </section>
 </article>
